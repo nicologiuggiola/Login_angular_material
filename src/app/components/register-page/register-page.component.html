@@ -1,0 +1,32 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>LOGIN</mat-card-title>
+        <form class="card-content-login" [formGroup]="profileForm">
+            <div >
+            <label for="username">Username: </label>
+            <input id="username" type="text" formControlName="username">
+            </div>
+            <div>
+            <label for="email">Email: </label>
+            <input id="email" type="mail" formControlName="email">
+            </div>
+            <div>
+            <label for="password">Password: </label>
+            <input id="password" type="password" formControlName="password">
+            </div>
+            <div>
+            <label for="checkPassword">Conferma Password: </label>
+            <input id="checkPassword" type="password" formControlName="checkPassword">
+            </div>
+            <div>
+            <label for="dob">Data di nascita: </label>
+            <input id="dob" type="text" formControlName="dob">
+            </div>
+          
+          </form>
+        <mat-card-actions>
+            <button type="submit" [disabled]="!profileForm.valid" mat-button>Login</button>
+            <!-- <p *ngIf="value">Username o password errate</p> -->
+        </mat-card-actions>
+    </mat-card>
+</div>

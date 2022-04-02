@@ -1,0 +1,21 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>LOGIN</mat-card-title>
+        <form class="card-content-login" [formGroup]="profileForm">
+
+            <label for="username">Username: </label>
+            <input id="username" type="text" formControlName="username">
+          
+            <label for="password">Password: </label>
+            <input id="password" type="password" formControlName="password">
+          
+          </form>
+        <mat-card-actions>
+            <button type="submit" [disabled]="!profileForm.valid" mat-button (click)="onClickLogin()">Login</button>
+            <p *ngIf="value">Username o password errate</p>
+            <p>Non hai ancora un account?
+                <a [routerLink]="['/register']" routerLinkActive="router-link-active" >Registrati</a>
+            </p>
+        </mat-card-actions>
+    </mat-card>
+</div>

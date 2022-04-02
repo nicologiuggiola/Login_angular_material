@@ -20,12 +20,11 @@
             </div>
             <div>
             <label for="dob">Data di nascita: </label>
-            <input id="dob" type="text" formControlName="dob">
+            <input id="dob" type="date" formControlName="dob">
             </div>
-          
           </form>
         <mat-card-actions>
-            <button type="submit" [disabled]="!profileForm.valid" mat-button>Login</button>
+            <button type="submit" [disabled]="!profileForm.valid" mat-button (click)="onClickRegister()">Login</button>
             <!-- <p *ngIf="value">Username o password errate</p> -->
         </mat-card-actions>
     </mat-card>

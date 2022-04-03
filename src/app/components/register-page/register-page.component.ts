@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CustomValidators } from 'src/app/custom-validators';
 import { LoginService } from 'src/app/login.service';
 
 @Component({
@@ -13,13 +15,16 @@ export class RegisterPageComponent implements OnInit {
 
   profileForm = new FormGroup({
     username: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.email),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8)
+    ]),
     checkPassword: new FormControl('', Validators.required),
     dob: new FormControl('', Validators.required)
-  });
+  }, CustomValidators.mustMatch("password", "checkPassword"));
 
-  constructor(private login:LoginService) { }
+  constructor(private login:LoginService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +38,7 @@ export class RegisterPageComponent implements OnInit {
       if (users.length < 1) {
         this.value = "";
         this.login.registerNewProfile(user).subscribe(user => console.log(user))
+        this.route.navigate(['login'])
       } else {
         this.value = users.length + "";
         console.log("false", this.value);

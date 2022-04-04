@@ -1,7 +1,7 @@
 <div class="container">
-    <mat-card>
+    <mat-card class="card-style">
         <mat-card-title>LOGIN</mat-card-title>
-        <form class="card-content-login" [formGroup]="profileForm">
+        <form class="card-content-login" [formGroup]="profileForm" (ngSubmit)="onClickLogin()">
 
             <label for="username">Username: </label>
             <input id="username" type="text" formControlName="username">
@@ -9,11 +9,11 @@
             <label for="password">Password: </label>
             <input id="password" type="password" formControlName="password">
           
+            <button type="submit" [disabled]="!profileForm.valid" mat-button>Login</button>
           </form>
         <mat-card-actions>
-            <button type="submit" [disabled]="!profileForm.valid" mat-button (click)="onClickLogin()">Login</button>
             <p *ngIf="value">Username o password errate</p>
-            <p>Non hai ancora un account?
+            <p style="margin-top: 10px;">Non hai ancora un account?
                 <a [routerLink]="['/register']" routerLinkActive="router-link-active" >Registrati</a>
             </p>
         </mat-card-actions>

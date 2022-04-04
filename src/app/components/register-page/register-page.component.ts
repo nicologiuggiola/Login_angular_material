@@ -30,7 +30,7 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onClickRegister(){
-    const user = {username: this.profileForm.value.username, password:this.profileForm.value.password, email:this.profileForm.value.email, dob:this.profileForm.value.dob}
+    const user = {username: this.profileForm.value.username, password:this.profileForm.value.password, mail:this.profileForm.value.email, dob:this.profileForm.value.dob}
     this.login.searchBeforeRegister(user);
     this.login.newRegisterCheck$.subscribe((users) => {
       console.log(users.length);

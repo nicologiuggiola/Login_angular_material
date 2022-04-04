@@ -11,6 +11,8 @@ export class LoginService {
   public usernameCheck$ = new BehaviorSubject<any[]>([]);
   public newRegisterCheck$ = new BehaviorSubject<any[]>([]);
 
+  public isLogged = false;
+
 
   constructor(private http: HttpClient) { }
 

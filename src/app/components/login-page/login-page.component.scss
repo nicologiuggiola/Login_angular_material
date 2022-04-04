@@ -7,11 +7,20 @@
     align-items: center;
 }
 
-.example-form-field {
-    width: 200px;
+.card-style{
+    min-width: 236px;
+    padding: 30px;
 }
 
 .card-content-login{
     display: flex;
     flex-direction: column;
+}
+
+label{
+    margin-top: 10px;
+}
+
+input{
+    margin-bottom: 10px;
 }

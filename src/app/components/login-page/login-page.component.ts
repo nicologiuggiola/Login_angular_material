@@ -32,7 +32,8 @@ export class LoginPageComponent implements OnInit {
     this.login.usernameCheck$.subscribe((users) => {
       if (users.length > 0) {
         this.value = "";
-        this.route.navigate(['home'])
+        this.route.navigate(['home']);
+        this.login.isLogged = true;
         console.log("true",this.value);
       } else {
         this.value = users.length + "";
